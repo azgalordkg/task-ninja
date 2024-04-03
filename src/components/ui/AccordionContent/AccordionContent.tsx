@@ -1,4 +1,5 @@
 import { isEqual } from "lodash";
+import moment from "moment";
 import React, { FC, memo } from "react";
 import { View } from "react-native";
 
@@ -25,9 +26,9 @@ export const AccordionContent: FC<Props> = ({
             hasDeadline,
             startDate,
             isDone,
-            _id,
+            id,
             name,
-            tags,
+            labels,
             repeat,
             description,
             priority,
@@ -39,18 +40,18 @@ export const AccordionContent: FC<Props> = ({
           return (
             <MemoizedListItem
               priority={priority}
-              tags={tags}
-              key={_id}
+              key={id}
               description={description}
               hasDeadline={Boolean(hasDeadline)}
               onItemPress={onItemPress}
-              startDate={startDate}
+              startDate={moment(startDate).valueOf()}
               onCheckPress={markTaskAsDone}
               onDeletePress={onDeletePress}
               isDone={isDone}
-              id={_id}
+              id={`${id}`}
               repeat={repeat}
               name={name}
+              labels={labels}
               checked={Boolean(isDone)}
               isLast={isLast}
             />

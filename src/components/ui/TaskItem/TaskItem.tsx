@@ -12,6 +12,7 @@ import { ActionButton, CustomCheckbox } from "@/components/ui";
 import { COLORS } from "@/constants";
 import { useTasksContext, useThemeContext } from "@/context/hooks";
 import { selectLabels } from "@/store/apis/labels/labels.selector";
+import { useGetAllTasksQuery } from "@/store/apis/tasks";
 import { LabelItem } from "@/types/labels";
 import {
   formatDate,
@@ -56,7 +57,8 @@ export const TaskItem: FC<ListItemProps> = ({
     i18n: { language },
   } = useTranslation();
 
-  const { fetchList, timeFormat } = useTasksContext();
+  const { refetch: fetchList } = useGetAllTasksQuery();
+  const { timeFormat } = useTasksContext();
   const allLabels = useSelector(selectLabels) as LabelItem[];
 
   const rightSwipe = (
