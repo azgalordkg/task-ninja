@@ -13,7 +13,7 @@ The app provides an easy-to-use interface for creating a list of tasks, like a T
 1. Clone the repository:
 
 ```bash
-git clone git@github.com:azgalordkg/task-manager.git
+git clone git@github.com:azgalordkg/task-ninja.git
 ```
 
 2. Install the dependencies:
@@ -27,9 +27,9 @@ yarn install
 3. Start the development server:
 
 ```bash
-npm run dev
+npm run start
 # or
-yarn dev
+yarn start
 ```
 
 The app should now be running on your local development environment.
